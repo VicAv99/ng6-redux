@@ -1,11 +1,4 @@
 
-<p align="center">
-  <a href="https://angularclass.com" target="_blank">
-    <img src="https://cloud.githubusercontent.com/assets/1016365/9864650/93a5660a-5b00-11e5-8716-a0d538d12913.png" alt="ng6-starter" width="480px;" >
-  </a>
-  <!-- old img url: http://res.cloudinary.com/angularclass/image/upload/v1431802814/ng6_vrmd60.png -->
-</p>
-
 # NG6 for Venturplex 
 > The de facto starter repo for building scalable apps with [Angular](https://angularjs.org), [ES6](https://git.io/es6features), and [Webpack](http://webpack.github.io/)
 
