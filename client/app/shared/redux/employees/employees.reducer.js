@@ -5,7 +5,7 @@ const initialState = {
   error: ''
 }
 
-function eployeesReducer(state = initialState, {type, payload}) {
+function EployeesReducer(state = initialState, {type, payload}) {
   switch (type) {
     case empTypes.LOAD_EMPLOYEES:
       return Object.assign({}, state, payload);
