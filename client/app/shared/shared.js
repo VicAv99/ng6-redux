@@ -8,7 +8,7 @@ let sharedModule = angular.module('app.shared', [
   Hero,
   userService
 ])
-  
+
 .name;
 
 export default sharedModule;
