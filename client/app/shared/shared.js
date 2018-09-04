@@ -2,13 +2,13 @@ import angular from 'angular';
 import Navbar from './navbar/navbar';
 import Hero from './hero/hero';
 import actionsModule from './redux/actions';
-import userService from "./services/user.service";
+import employeesService from "./services/employees.service";
 
 let sharedModule = angular.module('app.shared', [
   actionsModule.name,
   Navbar,
   Hero,
-  userService,
+  employeesService,
 ])
 
 .name;

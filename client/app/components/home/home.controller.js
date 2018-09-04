@@ -1,28 +1,38 @@
 class HomeController {
-  constructor(userService, $ngRedux) {
+  name = 'home';
+  employees = [];
+  constructor(employeesService, $ngRedux) {
     'ngInject';
-    this.userService = userService;
-    this.name = 'home';
+    this.employeesService = employeesService;
+    this.redux = $ngRedux;
   }
 
   $onInit() {
-    this.getUser();
+    this.getAllEmployees();
   }
 
-  getUser() {
-    this.userService.getItems();
+  getAllEmployees() {
+    this.employeesService.getEmployees()
+      .then(res => this.employees = res.data)
+      .catch(err => console.log('error', err));
   }
 
-  createUser(user) {
-    this.userService.createItem(user);
+  createEmployee(employee) {
+    this.employeesService.create(employee)
+      .then(res => this.getAllEmployees())
+      .catch(err => console.log('error', err));
   }
 
-  updateUser(user) {
-    this.userService.updateItem(user);
+  updateEmployee(employee) {
+    this.employeesService.update(employee)
+      .then(res => this.getAllEmployees())
+      .catch(err => console.log('error', err));
   }
 
-  deleteUser(user) {
-    this.userService.deleteItem(user);
+  deleteEmployee(employeeId) {
+    this.employeesService.delete(employeeId)
+      .then(res => this.getAllEmployees())
+      .catch(err => console.log('error', err));
   }
 }
 
