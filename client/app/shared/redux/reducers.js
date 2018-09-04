@@ -1,7 +1,7 @@
-import EmployeeReducer from "./employees/employees.reducer";
+import EmployeesReducer from "./employees/employees.reducer";
 
 const reducers = {
-  employees: EmployeeReducer
+  employees: EmployeesReducer
 }
 
 export default reducers;

@@ -1,5 +1,5 @@
 class HomeController {
-  constructor(userService) {
+  constructor(userService, $ngRedux) {
     'ngInject';
     this.userService = userService;
     this.name = 'home';
