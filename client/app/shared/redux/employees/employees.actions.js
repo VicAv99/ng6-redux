@@ -1,14 +1,22 @@
 import * as empTypes from './employees.actionTypes';
 
-export class employeesActions {
-  constructor() {
+export class EmployeesActions {
+  constructor(EmployeesService) {
     'ngInject';
+    this.employeesService = EmployeesService;
   }
 
   loadEmployees() {
-    return {
-      type: empTypes.LOAD_EMPLOYEES
-    };
+    return dispatch => {
+      return this.employeesService.getEmployees()
+        .then(emp => dispatch(this.loadEmployeesSuccess(emp)))
+        .catch(err => {
+          dispatch(this.loadEmployeesFailure(err));
+        })
+    }
+    // return {
+    //   type: empTypes.LOAD_EMPLOYEES
+    // };
   };
 
   loadEmployeesSuccess() {
