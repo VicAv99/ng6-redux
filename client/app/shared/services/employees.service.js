@@ -26,6 +26,6 @@ class EmployeesService {
       .delete(`${this.url}/${employeeId}`);
   }
 }
-let employeesService = angular.module('employeesService', [])
-  .service('employeesService', EmployeesService).name;
+let employeesService = angular.module('EmployeesService', [])
+  .service('EmployeesService', EmployeesService).name;
 export default employeesService

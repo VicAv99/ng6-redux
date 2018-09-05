@@ -1,12 +1,11 @@
 class HomeController {
   name = 'home';
   employees = [];
-  constructor(employeesService, $ngRedux, EmployeesActions) {
+  constructor($ngRedux, EmployeesService, EmployeesActions) {
     'ngInject';
-    this.employeesService = employeesService;
+    this.employeesService = EmployeesService;
     this.redux = $ngRedux;
-    // console.log(this.redux.dispatch(this.));
-    console.log(actionsService)
+    console.log($ngRedux.dispatch(EmployeesActions.loadEmployees()))
   }
 
   $onInit() {
