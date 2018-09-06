@@ -1,31 +1,30 @@
 import * as empTypes from './employees.actionTypes';
 
-function EmployeesActions(EmployeesService) {
+function EmployeesActions(EmployeesService, $q) {
   'ngInject';
 
   function loadEmployees() {
     return dispatch => {
       return EmployeesService.getEmployees()
-        .then(emp => dispatch(this.loadEmployeesSuccess(emp)))
-        .catch(err => {
-          dispatch(this.loadEmployeesFailure(err));
-        })
-    }
-    // return {
-    //   type: empTypes.LOAD_EMPLOYEES
-    // };
-  };
-
-  function loadEmployeesSuccess(emp) {
-    return {
-      type: empTypes.LOAD_EMPLOYEES_SUCCESS,
-      payload: emp
+        .then(employees => dispatch(loadEmployeesSuccess(employees)))
+        .catch(error => {
+          dispatch(loadEmployeesFailure(error));
+          return $q.reject(error);
+        });
     };
   };
 
-  function loadEmployeesFailure() {
+  function loadEmployeesSuccess(employees) {
     return {
-      type: empTypes.LOAD_EMPLOYEES_FAILURE
+      type: empTypes.LOAD_EMPLOYEES_SUCCESS,
+      payload: employees
+    };
+  };
+
+  function loadEmployeesFailure(error) {
+    return {
+      type: empTypes.LOAD_EMPLOYEES_FAILURE,
+      payload: error
     };
   };
 
